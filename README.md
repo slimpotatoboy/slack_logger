@@ -2,7 +2,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/slimpotatoboy/slack_logger.svg?style=social)](https://github.com/slimpotatoboy/slack_logger)
 
-A simple package to send message to slack channel
+A simple dart package to send message to slack channel via slack webhook
 
 ## Usage
 To use this plugin, add `slack_logger` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/platform-integration/platform-channels).
