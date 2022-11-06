@@ -2,7 +2,7 @@ name: slack_logger
 description: Unofficial Flutter Package to send message to slack channel
 version: 0.0.1
 repository: https://github.com/slimpotatoboy/slack_logger
-homepage: https://dipenmaharjan.com.np
+homepage: https://dipenmaharjan.com.np/
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
