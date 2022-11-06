@@ -2,6 +2,8 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/slimpotatoboy/slack_logger.svg?style=social)](https://github.com/slimpotatoboy/slack_logger)
 
+[![Follow Twitter](https://img.shields.io/twitter/follow/slimpotatoboy?style=social)](https://twitter.com/intent/follow?screen_name=slimpotatoboy)
+
 A simple dart package to send message to slack channel via slack webhook
 
 ## Usage
