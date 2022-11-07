@@ -1,3 +1,6 @@
+## 1.0.1
+
+- License Updated.
 ## 1.0.0
 
 - Made [SlackLogger] singleton.
