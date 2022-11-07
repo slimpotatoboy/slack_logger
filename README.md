@@ -90,6 +90,7 @@ slack.sendTextWithButton("[markdown message]","[button label]", "[button link]")
 ## 🚀 Contributors
 - [Dipen Maharjan](https://dipenmaharjan.com.np/)
 - [Ashim Upadhaya](https://github.com/ayyshim)
+---
 **Any new Contributors are welcomed.**
 
 Feel Free to request any missing features or report issues [here](https://github.com/slimpotatoboy/slack_logger/issues) 🔗.
