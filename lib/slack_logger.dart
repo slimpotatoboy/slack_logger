@@ -57,6 +57,74 @@ class SlackLogger {
     }
   }
 
+  /// pass [text] as string which also returns Future
+  /// [imageUrl] as string
+  /// optional parameter [imageAltText] as string
+  Future sendImageWithText(String text, String imageUrl,
+      [String? imageAltText]) async {
+    _assertInstance();
+
+    try {
+      var postBody = jsonEncode(
+        {
+          "blocks": [
+            {
+              "type": "image",
+              "title": {
+                "type": "plain_text",
+                "text": text,
+                "emoji": true,
+              },
+              "image_url": imageUrl,
+              "alt_text": imageAltText,
+            }
+          ]
+        },
+      );
+      requestUrl(postBody);
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
+  /// pass [markdownMessage] as string text message,
+  /// [buttonLabel] as string - button label,
+  /// [url] as string - when user clicks button
+  Future sendTextWithButton(
+      String markdownMessage, String buttonLabel, String url) async {
+    _assertInstance();
+
+    try {
+      var postBody = jsonEncode(
+        {
+          "blocks": [
+            {
+              "type": "section",
+              "text": {
+                "type": "mrkdwn",
+                "text": markdownMessage,
+              },
+              "accessory": {
+                "type": "button",
+                "text": {
+                  "type": "plain_text",
+                  "text": buttonLabel,
+                  "emoji": true
+                },
+                "value": "click_me_123",
+                "url": url,
+                "action_id": "button-action"
+              }
+            }
+          ]
+        },
+      );
+      requestUrl(postBody);
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
   static void _assertInstance() {
     assert(
       _instance != null,

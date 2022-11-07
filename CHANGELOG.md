@@ -1,3 +1,7 @@
+## 1.0.3
+
+- Send text in markdown with button.
+- Send image with text block.
 ## 1.0.2
 
 - Send image feature added.
