@@ -20,8 +20,10 @@ class SlackLogger {
 
   SlackLogger._internal(this.webhookUrl);
 
+  /// base url of slack webhook
   final String webhookUrl;
 
+  /// pass [message] as string which also returns Future
   Future send(String message) async {
     _assertInstance();
 
