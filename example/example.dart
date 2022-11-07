@@ -8,9 +8,10 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SlackLogger(webhookUrl: "[Add Your Web Hook Url]");
+
     return MaterialApp(
       title: 'Slack Logger Example',
       theme: ThemeData(
@@ -31,13 +32,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  final SlackLogger _sl = SlackLogger.instance;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
-    SlackLogger.send(
-      "[Add Your Web Hook Url]",
+    _sl.send(
       "Count $_counter Added",
     );
   }

@@ -7,29 +7,49 @@
 A simple dart package to send message to slack channel via slack webhook
 
 ## Usage
+
 To use this plugin, add `slack_logger` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/platform-integration/platform-channels).
 
 ### Steps before using this package
 
-* Add Apps to https://api.slack.com/apps/.
+- Add Apps to https://api.slack.com/apps/.
 
-* Go to Incoming Webhook Link and Enable it.
+- Go to Incoming Webhook Link and Enable it.
 
-* Create your slack channel.
+- Create your slack channel.
 
-* Create new webhook and link slack channel.
-
+- Create new webhook and link slack channel.
 
 ### You are good to go now 👍
 
-#### Send:
-
+### Initialize [SlackLogger]
 
 ```dart
-SlackLogger.send(
-    "[url from web hook]",
-    "This is a error log to my channel",
-);
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+
+    SlackLogger(webhookUrl: "[Add Your Web Hook Url]");
+
+    return MaterialApp(
+      ...
+    );
+  }
+}
+```
+
+#### Send:
+
+```dart
+final sl = SlackLogger.instance;
+
+...
+
+sl.send("This is a error log to my channel");
+
+...
 ```
 
 Feel Free to request any missing features or report issues [here](https://github.com/slimpotatoboy/slack_logger/issues).
