@@ -1,12 +1,12 @@
 name: slack_logger
 description: A simple dart package to send message to slack channel via slack webhook
-version: 0.0.2
+version: 1.0.0
 repository: https://github.com/slimpotatoboy/slack_logger
 homepage: https://dipenmaharjan.com.np/
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
-  flutter: ">=1.17.0"
+  flutter: '>=1.17.0'
 
 dependencies:
   flutter:
