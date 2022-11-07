@@ -1,3 +1,6 @@
+## 1.0.2
+
+- Send image feature added.
 ## 1.0.1
 
 - License Updated.

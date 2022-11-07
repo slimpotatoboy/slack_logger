@@ -32,14 +32,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  final SlackLogger _sl = SlackLogger.instance;
+  final SlackLogger _slack = SlackLogger.instance;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
-    _sl.send(
+    // send message to slack
+    _slack.send(
       "Count $_counter Added",
+    );
+  }
+
+  /// send image to slack
+  void _sendThisImage() {
+    _slack.sendImage(
+      "https://dipenmaharjan.com.np/assets/png/Thumbnail.png",
+      "Dipen Maharjan",
     );
   }
 
@@ -60,6 +69,16 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            Image.network(
+                "https://dipenmaharjan.com.np/assets/png/Thumbnail.png"),
+            TextButton(
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.deepPurple,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: _sendThisImage,
+              child: const Text("Send This Image"),
+            )
           ],
         ),
       ),
@@ -67,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }

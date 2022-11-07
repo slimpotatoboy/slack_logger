@@ -40,14 +40,26 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-#### Send:
+#### Send Message:
 
 ```dart
-final sl = SlackLogger.instance;
+final slack = SlackLogger.instance;
 
 ...
 
-sl.send("This is a error log to my channel");
+slack.send("This is a error log to my channel");
+
+...
+```
+
+#### Send Image:
+
+```dart
+final slack = SlackLogger.instance;
+
+...
+
+slack.sendImage("[image url]", "[alt text for image]");
 
 ...
 ```

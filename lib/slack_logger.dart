@@ -1,7 +1,7 @@
 library slack_logger;
 
 import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:slack_logger/utils/request_url.dart';
 
 class SlackLogger {
   static SlackLogger? _instance;
@@ -29,21 +29,29 @@ class SlackLogger {
 
     try {
       var postBody = jsonEncode({"text": message});
-      Uri url = Uri.parse(_instance!.webhookUrl);
-      final response = await http.post(
-        url,
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-        },
-        body: postBody,
-      );
+      requestUrl(postBody);
+    } catch (e) {
+      return e.toString();
+    }
+  }
 
-      if (response.statusCode == 200) {
-        return true;
-      } else {
-        return false;
-      }
+  /// pass [imageUrl] as string which also returns Future
+  Future sendImage(String imageUrl, [String? imageAltText]) async {
+    _assertInstance();
+
+    try {
+      var postBody = jsonEncode(
+        {
+          "blocks": [
+            {
+              "type": "image",
+              "image_url": imageUrl,
+              "alt_text": imageAltText,
+            }
+          ]
+        },
+      );
+      requestUrl(postBody);
     } catch (e) {
       return e.toString();
     }
