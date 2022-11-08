@@ -59,10 +59,14 @@ final slack = SlackLogger.instance;
 
 ...
 
-slack.sendImage("[image url]", "[alt text for image]");
+slack.sendImage(
+  imageUrl: "[image url]",
+  imageAltText: "[alt text for image]",
+);
 
 ...
 ```
+
 #### Send Image With Text Block:
 
 ```dart
@@ -70,7 +74,11 @@ final slack = SlackLogger.instance;
 
 ...
 
-slack.sendImageWithText("[text]","[image url]", "[alt text for image]");
+slack.sendImageWithText(
+  text: "[text]",
+  imageUrl: "[image url]",
+  imageAltText: "[alt text for image]"
+);
 
 ...
 ```
@@ -82,15 +90,22 @@ final slack = SlackLogger.instance;
 
 ...
 
-slack.sendTextWithButton("[markdown message]","[button label]", "[button link]");
+slack.sendTextWithButton(
+  markdownMessage: "[markdown message]",
+  buttonLabel: "[button label]",
+  url: "[button link]"
+);
 
 ...
 ```
 
 ## 🚀 Contributors
+
 - [Dipen Maharjan](https://dipenmaharjan.com.np/)
 - [Ashim Upadhaya](https://github.com/ayyshim)
+
 ---
+
 **Any new Contributors are welcomed.**
 
 Feel Free to request any missing features or report issues [here](https://github.com/slimpotatoboy/slack_logger/issues) 🔗.
