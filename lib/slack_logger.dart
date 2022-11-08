@@ -65,7 +65,7 @@ class SlackLogger {
   /// pass [text] as string which also returns Future
   /// [imageUrl] as string
   /// optional parameter [imageAltText] as string
-  Future sendImageWithText({
+  Future<void> sendImageWithText({
     required String text,
     required String imageUrl,
     String? imageAltText,
@@ -98,7 +98,7 @@ class SlackLogger {
   /// pass [markdownMessage] as string text message,
   /// [buttonLabel] as string - button label,
   /// [url] as string - when user clicks button
-  Future sendTextWithButton({
+  Future<void> sendTextWithButton({
     required String markdownMessage,
     required String buttonLabel,
     required String url,
@@ -132,7 +132,7 @@ class SlackLogger {
       );
       requestUrl(postBody);
     } catch (e) {
-      return e.toString();
+      throw SlackLoggerException(e.toString());
     }
   }
 
