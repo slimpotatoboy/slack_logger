@@ -1,6 +1,7 @@
 library slack_logger;
 
 import 'dart:convert';
+import 'package:slack_logger/exception.dart';
 import 'package:slack_logger/utils/request_url.dart';
 
 class SlackLogger {
@@ -31,12 +32,16 @@ class SlackLogger {
       var postBody = jsonEncode({"text": message});
       requestUrl(postBody);
     } catch (e) {
-      return e.toString();
+      throw SlackLoggerException(e.toString());
     }
   }
 
   /// pass [imageUrl] as string which also returns Future
-  Future sendImage(String imageUrl, [String? imageAltText]) async {
+  /// **optional** pass [imageAltText] as string
+  Future<void> sendImage({
+    required String imageUrl,
+    String? imageAltText,
+  }) async {
     _assertInstance();
 
     try {
@@ -53,15 +58,18 @@ class SlackLogger {
       );
       requestUrl(postBody);
     } catch (e) {
-      return e.toString();
+      throw SlackLoggerException(e.toString());
     }
   }
 
   /// pass [text] as string which also returns Future
   /// [imageUrl] as string
   /// optional parameter [imageAltText] as string
-  Future sendImageWithText(String text, String imageUrl,
-      [String? imageAltText]) async {
+  Future sendImageWithText({
+    required String text,
+    required String imageUrl,
+    String? imageAltText,
+  }) async {
     _assertInstance();
 
     try {
@@ -83,15 +91,18 @@ class SlackLogger {
       );
       requestUrl(postBody);
     } catch (e) {
-      return e.toString();
+      throw SlackLoggerException(e.toString());
     }
   }
 
   /// pass [markdownMessage] as string text message,
   /// [buttonLabel] as string - button label,
   /// [url] as string - when user clicks button
-  Future sendTextWithButton(
-      String markdownMessage, String buttonLabel, String url) async {
+  Future sendTextWithButton({
+    required String markdownMessage,
+    required String buttonLabel,
+    required String url,
+  }) async {
     _assertInstance();
 
     try {
