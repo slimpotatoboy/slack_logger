@@ -52,6 +52,24 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  // send attachment message
+  void _sendAttachmentMessage() {
+    _slack.sendTextAsAttachment(message: "Hi", color: "#ff0000");
+  }
+
+  // send attachment with markdown list
+  void _sendAttachmentMarkdown() {
+    _slack.sendMarkdownAsAttachment(
+      markdownMessageList: [
+        "_Forbidden Error_",
+        "*BOLD ERROR*",
+        "~Strike~",
+        '`lib/example/example.dart`'
+      ],
+      color: "#FF0000",
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,11 +99,27 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             TextButton(
               style: TextButton.styleFrom(
-                backgroundColor: Colors.deepPurple,
+                backgroundColor: Colors.red,
                 foregroundColor: Colors.white,
               ),
-              onPressed: _sendThisImage,
-              child: const Text("Send This Image"),
+              onPressed: _sendAttachmentMessage,
+              child: const Text("Send Error Attachment Message"),
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.red,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: _sendAttachmentMessage,
+              child: const Text("Send Error Attachment Markdown"),
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: _sendAttachmentMarkdown,
+              child: const Text("Send Error Attachment Markdown"),
             )
           ],
         ),
