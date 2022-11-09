@@ -78,6 +78,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               onPressed: _sendThisImage,
               child: const Text("Send This Image"),
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.deepPurple,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: _sendThisImage,
+              child: const Text("Send This Image"),
             )
           ],
         ),

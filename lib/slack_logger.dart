@@ -138,13 +138,17 @@ class SlackLogger {
   }
 
   /// pass [message] as string text message as attachment in slack,
-  Future<void> sendTextAsAttachment(String message) async {
+  Future<void> sendTextAsAttachment({
+    required String message,
+    required String color,
+  }) async {
     _assertInstance();
 
     try {
       var postBody = jsonEncode({
         "attachments": [
           {
+            "color": color,
             "blocks": [
               {
                 "type": "section",
