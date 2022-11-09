@@ -1,7 +1,6 @@
 library slack_logger;
 
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:slack_logger/exception.dart';
 import 'package:slack_logger/utils/request_url.dart';
 
