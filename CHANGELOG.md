@@ -1,3 +1,6 @@
+## 1.0.5
+
+- Added two new methods: `sendTextAsAttachment` and `sendMarkdownAsAttachment`
 ## 1.0.4
 
 - Made `send*` parameters named.
