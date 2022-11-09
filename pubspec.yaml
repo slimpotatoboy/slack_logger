@@ -1,6 +1,6 @@
 name: slack_logger
 description: A simple flutter package to send message to slack channel via slack webhook
-version: 1.0.3
+version: 1.0.4
 repository: https://github.com/slimpotatoboy/slack_logger
 homepage: https://dipenmaharjan.com.np/
 

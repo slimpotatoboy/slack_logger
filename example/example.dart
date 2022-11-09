@@ -47,8 +47,8 @@ class _MyHomePageState extends State<MyHomePage> {
   /// send image to slack
   void _sendThisImage() {
     _slack.sendImage(
-      "https://dipenmaharjan.com.np/assets/png/Thumbnail.png",
-      "Dipen Maharjan",
+      imageUrl: "https://dipenmaharjan.com.np/assets/png/Thumbnail.png",
+      imageAltText: "Dipen Maharjan",
     );
   }
 
