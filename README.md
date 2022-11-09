@@ -40,11 +40,14 @@ class MyApp extends StatelessWidget {
 }
 ```
 
+### Create Instance of SlackLogger
+```dart
+final slack = SlackLogger.instance;
+```
+
 #### Send Message:
 
 ```dart
-final slack = SlackLogger.instance;
-
 ...
 
 slack.send("This is a error log to my channel");
@@ -55,8 +58,6 @@ slack.send("This is a error log to my channel");
 #### Send Image:
 
 ```dart
-final slack = SlackLogger.instance;
-
 ...
 
 slack.sendImage(
@@ -70,8 +71,6 @@ slack.sendImage(
 #### Send Image With Text Block:
 
 ```dart
-final slack = SlackLogger.instance;
-
 ...
 
 slack.sendImageWithText(
@@ -86,14 +85,35 @@ slack.sendImageWithText(
 #### Send Text (Markdown) with Button:
 
 ```dart
-final slack = SlackLogger.instance;
-
 ...
 
 slack.sendTextWithButton(
   markdownMessage: "[markdown message]",
   buttonLabel: "[button label]",
   url: "[button link]"
+);
+
+...
+```
+
+#### Send Text As Attachments:
+
+```dart
+...
+
+slack.sendTextAsAttachment("[Your Message]");
+
+...
+```
+
+#### Send Markdowns As Attachments:
+
+```dart
+...
+
+slack.sendMarkdownAsAttachment(
+  markdownMessageList: List<String> [markdownMessageList],
+  color: "[color]"
 );
 
 ...
