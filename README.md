@@ -101,7 +101,10 @@ slack.sendTextWithButton(
 ```dart
 ...
 
-slack.sendTextAsAttachment("[Your Message]");
+slack.sendTextAsAttachment(
+  message:"[Your Message]",
+  color: "[color]"
+);
 
 ...
 ```

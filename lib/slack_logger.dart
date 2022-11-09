@@ -138,6 +138,7 @@ class SlackLogger {
   }
 
   /// pass [message] as string text message as attachment in slack,
+  /// pass [color] as string eg: #ff0000,
   Future<void> sendTextAsAttachment({
     required String message,
     required String color,
