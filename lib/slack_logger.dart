@@ -1,6 +1,7 @@
 library slack_logger;
 
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:slack_logger/exception.dart';
 import 'package:slack_logger/utils/request_url.dart';
 
@@ -130,6 +131,66 @@ class SlackLogger {
           ]
         },
       );
+      requestUrl(postBody);
+    } catch (e) {
+      throw SlackLoggerException(e.toString());
+    }
+  }
+
+  /// pass [message] as string text message as attachment in slack,
+  Future<void> sendTextAsAttachment(String message) async {
+    _assertInstance();
+
+    try {
+      var postBody = jsonEncode({
+        "attachments": [
+          {
+            "blocks": [
+              {
+                "type": "section",
+                "text": {"type": "plain_text", "text": message, "emoji": true}
+              }
+            ]
+          }
+        ]
+      });
+      requestUrl(postBody);
+    } catch (e) {
+      throw SlackLoggerException(e.toString());
+    }
+  }
+
+  /// pass [markdownMessageList] as List of String markdown
+  /// pass [color] as String (HEX)
+  /// It'll show as attachments in slack
+  Future<void> sendMarkdownAsAttachment({
+    required List<String> markdownMessageList,
+    required String color,
+  }) async {
+    _assertInstance();
+
+    try {
+      dynamic values;
+      List<dynamic> listOfValues = [];
+      for (var i = 0; i < markdownMessageList.length; i++) {
+        values = {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": markdownMessageList[i],
+          }
+        };
+        listOfValues.add(values);
+      }
+      var postBody = jsonEncode({
+        "attachments": [
+          {
+            "color": color,
+            "blocks": listOfValues,
+          }
+        ]
+      });
+
       requestUrl(postBody);
     } catch (e) {
       throw SlackLoggerException(e.toString());
