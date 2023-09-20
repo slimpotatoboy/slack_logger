@@ -1,5 +1,8 @@
 ## 1.0.6
 
+- Bumped Version
+## 1.0.6
+
 - License Updated
 ## 1.0.5
 
